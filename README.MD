@@ -2,6 +2,29 @@
 A Retrieval-Augmented Generation (RAG) system that enables users to upload PDF documents and ask natural language questions. The system retrieves relevant context using semantic search and generates grounded answers using Google Gemini.
 
 ---
+
+## Features 
+- PDF document ingestion
+- Text chunking using LangChain
+- Semantic embeddings with Hugging Face
+- Vector storage using ChromaDB
+- Context retrieval through similarity search
+- Question answering powered by Google Gemini
+- REST API built with FastAPI
+- Interactive API documentation with Swagger UI
+
+---
+
+## Tech Stack
+- Python
+- FastAPI
+- LangChain
+- ChromaDB
+- Hugging Face Embeddings
+- Google Gemini
+- PyPDF
+
+---
 ## How to run
 ### Clone the repository:
 ```text
@@ -51,28 +74,6 @@ streamlit run app.py
 ```
 #### Open:
 http://localhost:8501
-
----
-
-## Features 
-- PDF document ingestion
-- Text chunking using LangChain
-- Semantic embeddings with Hugging Face
-- Vector storage using ChromaDB
-- Context retrieval through similarity search
-- Question answering powered by Google Gemini
-- REST API built with FastAPI
-- Interactive API documentation with Swagger UI
----
-
-## Tech Stack
-- Python
-- FastAPI
-- LangChain
-- ChromaDB
-- Hugging Face Embeddings
-- Google Gemini
-- PyPDF
 
 ---
 
