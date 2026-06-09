@@ -2,6 +2,57 @@
 A Retrieval-Augmented Generation (RAG) system that enables users to upload PDF documents and ask natural language questions. The system retrieves relevant context using semantic search and generates grounded answers using Google Gemini.
 
 ---
+## How to run
+### Clone the repository:
+```text
+git clone https://github.com/1affogato/chat-pdf-rag.git
+cd chat-pdf-rag
+```
+
+### Create a virtual environment:
+```text
+python -m venv venv
+```
+
+### Activate the virtual environment:
+
+#### Windows:
+```text
+venv\Scripts\activate
+```
+
+#### Linux / macOS:
+```text
+source venv/bin/activate
+```
+
+### Install dependencies:
+```text
+pip install -r requirements.txt
+```
+## Environment Variables
+### Create a .env file in the project root:
+```
+GOOGLE_API_KEY=your_google_api_key
+```
+## Running the Backend
+### Start FastAPI:
+```
+uvicorn main:app --reload
+```
+
+### API documentation:
+http://127.0.0.1:8000/docs
+
+### Running the Frontend
+### Start Streamlit:
+```
+streamlit run app.py
+```
+#### Open:
+http://localhost:8501
+
+---
 
 ## Features 
 - PDF document ingestion
