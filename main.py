@@ -1,7 +1,9 @@
-from question import ask_question
+from fastapi import FastAPI
 
-answer = ask_question(
-    "¿Qué es una RNA?"
-)
+from src.routes.ask import router as ask_router
+from src.routes.upload import router as upload_router
 
-print(answer)
+app = FastAPI()
+
+app.include_router(ask_router)
+app.include_router(upload_router)

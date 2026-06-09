@@ -22,4 +22,13 @@ def save_to_chroma_db(chunks: list[Document], embedding_model) -> Chroma:
 
     print(f"Saved {len(chunks)} documents at {CHROMA_PATH}")
 
-    return db 
+    return db
+
+def load_chroma_db(embedding_model) -> Chroma:
+
+    db = Chroma(
+        persist_directory=CHROMA_PATH,
+        embedding_function=embedding_model
+    )
+
+    return db
