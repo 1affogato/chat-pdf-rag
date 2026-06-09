@@ -1,5 +1,5 @@
 # PDF RAG Assistant
-A Retrieval-Augmented Generation (RAG) system that allows users to ask questions about PDF documents and receive context-aware answers based on the document content.
+A Retrieval-Augmented Generation (RAG) system that enables users to upload PDF documents and ask natural language questions. The system retrieves relevant context using semantic search and generates grounded answers using Google Gemini.
 
 ---
 
@@ -10,26 +10,18 @@ A Retrieval-Augmented Generation (RAG) system that allows users to ask questions
 - Vector storage using ChromaDB
 - Context retrieval through similarity search
 - Question answering powered by Google Gemini
-
+- REST API built with FastAPI
+- Interactive API documentation with Swagger UI
 ---
 
 ## Tech Stack
 - Python
+- FastAPI
 - LangChain
 - ChromaDB
 - Hugging Face Embeddings
 - Google Gemini
 - PyPDF
-
----
-
-## Example
-
-### Question
-**What is an Artificial Neural Network?**
-
-### Answer
-An Artificial Neural Network is a mathematical model that receives external inputs or inputs from other neurons, combines them, and produces an output to perform specific tasks.
 
 ---
 
@@ -45,7 +37,7 @@ An Artificial Neural Network is a mathematical model that receives external inpu
 
 ## Architecture
 ```text
-PDF Documents
+PDF Upload
       │
       ▼
  Document Loader
@@ -69,65 +61,28 @@ PDF Documents
      Answer
 ```
 
-- - - - - - - - - - - - - - - - - - - - - - - -
-# Asistente RAG PDF
+## API Endpoints
+### Upload a PDF
 
-Un sistema de Retrieval-Augmented Generation (RAG) que permite a los usuarios realizar preguntas sobre documentos PDF y obtener respuestas basadas en el contenido del documento.
+#### POST /upload
+Uploads and automatically indexes a PDF document.
+Ask Questions
 
-## Características
-- Carga e ingestión de documentos PDF
-- División de texto en fragmentos mediante LangChain
-- Embeddings semánticos con Hugging Face
-- Almacenamiento vectorial utilizando ChromaDB
-- Recuperación de contexto mediante búsqueda por similitud
-- Respuestas a preguntas impulsadas por Google Gemini
+#### POST /ask
+Receives a natural language question and returns an answer based on the indexed documents.
 
-## Tecnologias
-- Python
-- LangChain
-- ChromaDB
-- Hugging Face Embeddings
-- Google Gemini
-- PyPDF
+---
 
-## Ejemplo
-
-### Pregunta
-**¿Qué es una Red Neuronal Artificial?**
-
-### Respuesta
-Una Red Neuronal Artificial es un modelo matemático que recibe entradas externas o provenientes de otras neuronas, las combina y genera una salida para realizar tareas específicas.
-
-## Mejoras Futuras
-- Backend con FastAPI
-- Endpoints REST API
-- Interfaz web con Streamlit
-- Soporte para múltiples documentos
-- Memoria conversacional
-- Despliegue con Docker
-
-## Arquitectura
+#### Example Request
 ```text
-PDF Documents
-      │
-      ▼
- Document Loader
-      │
-      ▼
- Text Chunking
-      │
-      ▼
- Embeddings (Hugging Face)
-      │
-      ▼
- ChromaDB Vector Store
-      │
-      ▼
- Similarity Search
-      │
-      ▼
- Google Gemini
-      │
-      ▼
-     Answer
+{
+  "question": "What is an Artificial Neural Network?"
+}
+```
+
+#### Example Response
+```text
+{
+  "answer": "An Artificial Neural Network is a mathematical model that receives external inputs or inputs from other neurons, combines them, and produces an output to perform specific tasks."
+}
 ```
